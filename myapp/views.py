@@ -9,13 +9,14 @@ from django.dispatch import receiver
 from rest_framework.authtoken.models import Token
 from django.http import HttpResponse, HttpResponseRedirect
 
+#generates user authentication token
 @receiver(post_save, sender=Employees)
 def create_auth_token(sender, instance=None, created=False, **kwargs):
     if created:
         Token.objects.create(user=instance)
 
 
-# from django.contrib.auth.models import  
+
 class CompaniesViewSet(viewsets.ModelViewSet):
     queryset =Companies.objects.all().order_by('name')
     serializer_class =CompaniesSerializer

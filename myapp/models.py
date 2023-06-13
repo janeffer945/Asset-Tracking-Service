@@ -6,7 +6,7 @@ from django.dispatch import receiver
 
 
 
-# Create your models here.
+# model to create company 
 class Companies(models.Model):
     id = models.AutoField(primary_key=True)
     name = models.CharField(max_length=100)
@@ -17,7 +17,7 @@ class Companies(models.Model):
     def __str__(self):
         return self.name 
     
-
+#model to employee
 class Employees(models.Model ):
  id = models.AutoField(primary_key=True)  
  company = models.ForeignKey(Companies, on_delete=models.CASCADE)
@@ -31,7 +31,7 @@ class Employees(models.Model ):
  def __str__(self):
         return self.full_name
 
-
+#model to create device
 class Devices(models.Model):
  id = models.AutoField(primary_key=True)
  employee = models.ForeignKey(Employees, on_delete=models.CASCADE)
@@ -42,6 +42,7 @@ class Devices(models.Model):
  def __str__(self):
         return self.name
 
+#model to track devices
 class Device_log(models.Model):
    id = models.AutoField(primary_key=True)
    device = models.ForeignKey(Devices, on_delete=models.CASCADE)
