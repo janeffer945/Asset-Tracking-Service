@@ -1,7 +1,7 @@
 from django.test import TestCase
 from myapp.models import Companies
 
-class AnimalTestCase(TestCase):
+class CompanyTestCase(TestCase):
     def setUp(self):
        Companies.objects.create(name="test limited", email="test@gmail.com")
 
