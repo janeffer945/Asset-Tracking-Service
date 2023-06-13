@@ -1,5 +1,5 @@
 from django.test import TestCase
-from myapp.models import Companies
+from myapp.models import Companies, Devices, Employees
 
 class CompanyTestCase(TestCase):
     def setUp(self):
@@ -9,3 +9,4 @@ class CompanyTestCase(TestCase):
         "user should be able to create a company"
         company =Companies.objects.get(email="test@gmail.com")
         self.assertEqual(company.name,'test limited')
+
