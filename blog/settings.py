@@ -12,6 +12,35 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 
 from pathlib import Path
 import os
+from decouple import config, Csv
+import dj_database_url
+
+MODE = os.getenv("MODE")
+SECRET_KEY = os.getenv("SECRET_KEY")
+DEBUG = os.getenv("DEBUG")
+# development 
+if os.getenv('MODE')=="dev":
+   DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'API',
+        'HOST': 'localhost',
+        'PASSWORD': 'njeri@K123',
+        'USER': 'root',
+        'PORT': '3306',
+    }
+}
+# production
+else:
+    DATABASES = {
+        'default': dj_database_url.config(
+        default = config('DATABASE_URL')
+        )
+    }
+
+db_from_env = dj_database_url.config(conn_max_age=500)
+DATABASES['default'].update(db_from_env)
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
