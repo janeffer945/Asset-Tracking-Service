@@ -15,4 +15,4 @@ import attached postman collection to postman and run the respective endpoints
 ```
 
 ## URLS 
-#swagger: http://127.0.0.1:8000/swagger/ 
+swagger: http://127.0.0.1:8000/swagger/ 
