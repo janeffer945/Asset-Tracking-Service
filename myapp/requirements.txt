@@ -1,3 +1,0 @@
-Django==4.1.2
-django_rest_swagger==2.2.0
-djangorestframework==3.14.0
