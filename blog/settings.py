@@ -70,6 +70,7 @@ INSTALLED_APPS = [
     'rest_framework.authtoken',
     'rest_framework',
     'drf_yasg',
+    'corsheaders',
     
     
    
@@ -81,6 +82,11 @@ REST_FRAMEWORK = {
        
     ],
 }
+
+CORS_ORIGIN_ALLOW_ALL = False
+CORS_ORIGIN_WHITELIST = (
+    'https://asset-tracking-service-production.up.railway.app'
+)
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
